@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-    provider = "mongodb"
-    url      = env("DATABASE_URL")
+  provider = "mongodb"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Account {
@@ -38,8 +39,24 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  totalEx       Int       @default(0)
+
   accounts      Account[]
   sessions      Session[]
+  routines      Exercise[]
+}
+
+model Exercise{
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  reps          Int
+  weight        Int
+  sets          Int
+  days          String
+  done          Boolean?  @default(false)
+
+  userId       String     @db.ObjectId
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
