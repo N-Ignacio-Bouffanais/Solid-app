@@ -2,17 +2,15 @@ import { type VoidComponent, Suspense, Show } from "solid-js";
 import { A } from "solid-start";
 import { trpc } from "~/utils/trpc";
 import { createSession, signOut, signIn } from "@solid-auth/base/client";
-import ExerciseForm from "~/components/ExerciseForm";
 
 const Home: VoidComponent = () => {
   return (
-    <main class="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#026d56] to-[#152a2c]">
+    <main class="flex min-h-screen flex-col items-center justify-center bg-dark-blue">
       <div class="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <h1 class="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
           Welcome
         </h1>
         <div class="flex flex-col items-center gap-2">
-          <ExerciseForm/>
           <Suspense>
             <AuthShowcase />
           </Suspense>
@@ -32,7 +30,7 @@ const AuthShowcase: VoidComponent = () => {
         when={session()}
         fallback={
           <button
-            onClick={() => signIn("github", { redirectTo: "/" })}
+            onClick={() => signIn("github", { redirectTo: "/profile" })}
             class="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
           >
             Sign in

@@ -1,4 +1,5 @@
 import { Component, createSignal } from 'solid-js';
+import { setModal } from '~/routes/Profile';
 
 const ExerciseForm: Component = () => {
 
@@ -12,11 +13,12 @@ const ExerciseForm: Component = () => {
     const submit = async (event: Event) => {
         event.preventDefault();
         console.log(JSON.stringify(form()))
+        setModal(false)
     };
 
     return (
         <>
-            <form>
+            <form class='flex flex-col'>
                 <label class="text-slate-300 text-xl font-semibold" for="exercise">Exercise:</label>
                 <select onInput={(e) =>{
                     const key = e.currentTarget.name;
@@ -56,7 +58,7 @@ const ExerciseForm: Component = () => {
                     setForm({ ...form(), sets: Number(e.currentTarget.value)})
                 }} name="sets" id="sets" class="outline-none flex rounded-md h-9 w-80 px-4 font-medium my-2" type="number" />
                 <button type="button" onClick={submit} class="h-9 w-80 rounded-md bg-sky-600 text-slate-50 font-semibold my-4">Done</button>
-                <button type="button" class="h-9 w-80 rounded-md bg-pink-700 text-slate-50 font-semibold my-2">Cancel</button>
+                <button type="button" onclick={() => setModal(false)} class="h-9 w-80 rounded-md bg-pink-700 text-slate-50 font-semibold my-2">Cancel</button>
             </form>
         </>
     )
