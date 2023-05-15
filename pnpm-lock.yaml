@@ -18,7 +18,6 @@ specifiers:
   eslint-plugin-solid: ^0.9.4
   postcss: ^8.4.21
   prisma: ^4.10.1
-  solid-form-handler: ^1.2.0
   solid-js: ^1.7.3
   solid-start: ^0.2.26
   solid-start-node: ^0.2.26
@@ -41,7 +40,6 @@ dependencies:
   '@tanstack/solid-query': 5.0.0-alpha.20_solid-js@1.7.5
   '@trpc/client': 10.25.1_@trpc+server@10.25.1
   '@trpc/server': 10.25.1
-  solid-form-handler: 1.2.0_solid-js@1.7.5
   solid-js: 1.7.5
   solid-start: 0.2.26_6bnmqtahbin4p5tsh6jfbva724
   solid-start-trpc: 0.0.16_bakpg22kupsgl7w6ocfql6duuu
@@ -3900,14 +3898,6 @@ packages:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
     dev: true
-
-  /solid-form-handler/1.2.0_solid-js@1.7.5:
-    resolution: {integrity: sha512-T+bIzu9xJgfuZUrN1w7zhl8Dy8FYHZQ+iqtmmfO0dE5qerPbSRWDhSK3tykpfC7cEbW4Ts+ZfNM5IKyqiAALsg==}
-    peerDependencies:
-      solid-js: ^1
-    dependencies:
-      solid-js: 1.7.5
-    dev: false
 
   /solid-js/1.7.5:
     resolution: {integrity: sha512-GfJ8na1e9FG1oAF5xC24BM+ATLym0sfH+ZblkbBFpueYdq3fWAoA5Ve+jGeIeLI7jmMGfa0rUaKruszNm2sH8w==}
