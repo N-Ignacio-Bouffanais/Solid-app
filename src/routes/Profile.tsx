@@ -7,10 +7,15 @@ import Protected from "~/components/Protected";
 export const [modal, setModal] = createSignal(false);
 
 export const { routeData, Page } = Protected((session) => {
-
+  const image = session.user?.image
+  const name = session.user?.name
   return (
-    <main class="flex min-h-screen flex-col items-center justify-center bg-dark-blue">
-      <div>
+    <main class="flex min-h-screen flex-col items-center bg-dark-blue">
+      <div class="w-4/5 flex flex-col items-center mt-6">
+        {image && <picture>
+          <img class="rounded-full" src={image} alt="profile image" width={70} height={70} />
+        </picture>}
+        {name && <p class='text-white my-2'>{name}</p>}
         <Show when={modal()}>
           <ExerciseForm />
         </Show>
