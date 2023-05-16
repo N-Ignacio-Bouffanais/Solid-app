@@ -4,6 +4,15 @@ import { createServerData$ } from "solid-start/server"
 import { authOptions } from "~/server/auth"
 import { A } from "@solidjs/router"
 
+export const useSession = () => {
+    return createServerData$(
+        async (_, { request }) => {
+            return await getSession(request, authOptions)
+        },
+        { key: () => ["auth_user"] }
+    )
+}
+
 const Navbar = () => {
     const session = useSession()
     const user = () => session()?.user
@@ -40,11 +49,4 @@ const Navbar = () => {
 }
 export default Navbar
 
-export const useSession = () => {
-    return createServerData$(
-        async (_, { request }) => {
-            return await getSession(request, authOptions)
-        },
-        { key: () => ["auth_user"] }
-    )
-}
+

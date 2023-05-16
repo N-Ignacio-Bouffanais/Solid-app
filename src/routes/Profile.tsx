@@ -1,10 +1,12 @@
-import ExerciseForm from "~/components/ExerciseForm"
+import ExerciseForm from "~/components/ExerciseForm";
 import { createSignal, Show } from "solid-js";
-import { AiOutlinePlus } from 'solid-icons/ai'
+import { AiOutlinePlus } from 'solid-icons/ai';
+import Protected from "~/components/Protected";
+
 
 export const [modal, setModal] = createSignal(false);
 
-const Profile = () => {
+export const { routeData, Page } = Protected((session) => {
 
   return (
     <main class="flex min-h-screen flex-col items-center justify-center bg-dark-blue">
@@ -18,6 +20,6 @@ const Profile = () => {
       </div>
     </main>
   )
-}
+})
 
-export default Profile
+export default Page;
